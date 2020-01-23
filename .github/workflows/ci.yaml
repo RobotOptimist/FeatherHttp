@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: master
+        ref: ci-changes
     - run: |
         git fetch --prune --unshallow origin HEAD
 
@@ -32,9 +32,8 @@ jobs:
     - name: update template nuget package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: | 
-        $NBGV_NuGetPackageVersion        
-        ls
-       # dotnet add FeatherHttpProject.csproj package FeatherHttp -v $NBGV_NuGetPackageVersion --no-restore
+        $NBGV_NuGetPackageVersion                
+        dotnet add  ./template/TemplateProject/FeatherHttpProject.csproj package FeatherHttp -v $NBGV_NuGetPackageVersion --no-restore
 
     - name: build template package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'

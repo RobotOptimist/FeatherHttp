@@ -17,6 +17,10 @@ jobs:
       uses: actions/setup-dotnet@v1.0.0
       with:
         version: 3.1.100
+
+    - name: install nbgv
+      #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: dotnet tool install --tool-path . nbgv         
      
     - name: dotnet build
       run: dotnet build FeatherHttp.sln -c Release    
@@ -44,10 +48,6 @@ jobs:
     - name: push packages
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: dotnet nuget push **/*.nupkg -s https://f.feedz.io/macivor/featherhttp/nuget/index.json -ss https://f.feedz.io/macivor/featherhttp/symbols --skip-duplicate
-
-    - name: install nbgv
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-      run: dotnet tool install --tool-path . nbgv 
 
     - name: update nuget package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'

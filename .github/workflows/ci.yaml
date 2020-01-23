@@ -31,9 +31,6 @@ jobs:
         dotnet add  ./template/TemplateContent/FeatherHttpProject.csproj package FeatherHttp -v $env:NBGV_NuGetPackageVersion --no-restore
         
     - name: build template package
-      uses: aarnott/nbgv@v0.3
-      with:
-        path: ./template/TemplateProject
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: dotnet build ./template/TemplateProject/FeatherHttpTemplate.csproj -c Release
 

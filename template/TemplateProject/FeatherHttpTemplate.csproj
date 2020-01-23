@@ -6,11 +6,10 @@
     <Authors>David Fowler</Authors>
     <Description>Templates to use when creating a FeatherHttp application.</Description>
     <PackageTags>dotnet-new;templates;featherhttp</PackageTags>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <IsPackable>True</IsPackable>
+    <TargetFramework>netcoreapp3.1</TargetFramework>    
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <ContentTargetFolders>content</ContentTargetFolders>
+    <ContentTargetFolders>content</ContentTargetFolders>    
   </PropertyGroup>
   <ItemGroup>
     <Content Include="..\TemplateContent\**\*" Exclude="TemplateContent\**\bin\**;TemplateContent\**\obj\**" />

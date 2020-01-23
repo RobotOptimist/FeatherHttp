@@ -32,8 +32,9 @@ jobs:
     - name: update template nuget package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: | 
-        $NBGV_NuGetPackageVersion                
-        dotnet add  ./template/TemplateProject/FeatherHttpProject.csproj package FeatherHttp -v $NBGV_NuGetPackageVersion --no-restore
+        $version = $NBGV_NuGetPackageVersion                
+        $version
+        dotnet add  ./template/TemplateProject/FeatherHttpProject.csproj package FeatherHttp -v $version --no-restore
 
     - name: build template package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'

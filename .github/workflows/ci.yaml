@@ -21,6 +21,10 @@ jobs:
     - name: install nbgv
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: dotnet tool install --tool-path . nbgv         
+
+    - name: Print env vars
+      run: |
+        gci env:NBGV_*,env:Git*
      
     - name: dotnet build
       run: dotnet build FeatherHttp.sln -c Release    

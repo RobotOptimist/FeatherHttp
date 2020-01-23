@@ -32,7 +32,7 @@ jobs:
 
     - name: build template package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-      run: dotnet build ./template/TemplateProject/FeatherHttpTemplate.csproj -c Release
+      run: dotnet build ./template/TemplateProject/FeatherHttpTemplate.csproj -c Release /p:PublicRelease=true
 
     - name: pack template nuget
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'

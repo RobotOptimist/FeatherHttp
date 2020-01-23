@@ -32,8 +32,8 @@ jobs:
     - name: update template nuget package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: | 
-        NBGV_NuGetPackageVersion        
-        $NBGV_NuGetPackageVersion
+        $NBGV_NuGetPackageVersion        
+        $env:NBGV_NuGetPackageVersion
         echo $pwd
         cd ./template/TemplateProject
         ls

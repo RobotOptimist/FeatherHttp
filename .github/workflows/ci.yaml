@@ -29,12 +29,6 @@ jobs:
     - name: dotnet build
       run: dotnet build FeatherHttp.sln -c Release    
 
-    - name: dotnet test
-      run: dotnet test FeatherHttp.sln -c Release --no-build
-
-    - name: dotnet pack
-      run: dotnet pack FeatherHttp.sln -c Release --no-build --include-source --include-symbols
-
     - name: update template nuget package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: | 
@@ -48,6 +42,12 @@ jobs:
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: |          
         dotnet pack ./template/TemplateProject/FeatherHttpTemplate.csproj -c Release      
+
+    - name: dotnet test
+      run: dotnet test FeatherHttp.sln -c Release --no-build
+
+    - name: dotnet pack
+      run: dotnet pack FeatherHttp.sln -c Release --no-build --include-source --include-symbols
 
     - name: setup nuget
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'

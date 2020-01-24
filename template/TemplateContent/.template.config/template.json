@@ -11,5 +11,5 @@
       "type": "project"
     },
     "primaryOutputs": [{ "path": "FeatherHttpProject.csproj"}],
-    "preferNameDirectory": "true"
+    "preferNameDirectory": true
   }

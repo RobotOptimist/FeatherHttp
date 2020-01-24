@@ -4,19 +4,22 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 
-class Program
+namespace FeatherHttp.Templates.HelloWorld 
 {
-    static async Task Main(string[] args)
+    class Program
     {
-        var builder = WebApplication.CreateBuilder(args);
-
-        var app = builder.Build();
-
-        app.MapGet("/", async context =>
+        static async Task Main(string[] args)
         {
-            await context.Response.WriteAsync("Hello World!");
-        });
+            var builder = WebApplication.CreateBuilder(args);
 
-        await app.RunAsync();
+            var app = builder.Build();
+
+            app.MapGet("/", async context =>
+            {
+                await context.Response.WriteAsync("Hello World!");
+            });
+
+            await app.RunAsync();
+        }
     }
 }

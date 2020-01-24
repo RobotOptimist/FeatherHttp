@@ -11,5 +11,6 @@
       "type": "project"
     },
     "primaryOutputs": [{ "path": "FeatherHttpProject.csproj"}],
+    "sourceName": "FeatherHttp.Templates.HelloWorld",
     "preferNameDirectory": true
   }

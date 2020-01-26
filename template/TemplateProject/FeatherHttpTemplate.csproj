@@ -11,16 +11,17 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>    
   </PropertyGroup>
+  <ItemGroup>
+      <ContentFiles Include="..\TemplateContent\**\*.*"
+  </ItemGroup>
   <Target Name="CopyFiles">
     <Copy 
-      SourceFiles="..\TemplateContent\**\*.*" 
+      SourceFiles="@(ContentFiles)" 
       DestinationFolder=".\content"
     />
   </Target>
   <ItemGroup>
-    <Content Include="content\**\*" Exclude="content\**\bin\**;content\**\obj\**">
-      <PackagePath>\</PackagePath> 
-    </Content>
+    <Content Include="content\**\*" Exclude="content\**\bin\**;content\**\obj\**" />
     <Compile Remove="**\*" />        
   </ItemGroup>
 </Project>

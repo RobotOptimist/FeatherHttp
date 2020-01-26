@@ -9,7 +9,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>    
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <ContentTargetFolders></ContentTargetFolders>    
+    <ContentTargetFolders>content</ContentTargetFolders>    
   </PropertyGroup>
   <Target Name="CopyFiles">
     <Copy 

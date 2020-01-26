@@ -14,7 +14,7 @@
   <ItemGroup>
       <ContentFiles Include="..\TemplateContent\**\*.*"/>
   </ItemGroup>
-  <Target Name="CopyFiles">
+  <Target Name="CopyFiles" BeforeTargets="Build">
     <Copy 
       SourceFiles="@(ContentFiles)" 
       DestinationFolder=".\content"

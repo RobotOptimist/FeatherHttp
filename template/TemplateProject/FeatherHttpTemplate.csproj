@@ -12,7 +12,7 @@
     <ContentTargetFolders>content</ContentTargetFolders>    
   </PropertyGroup>
   <ItemGroup>
-      <ContentFiles Include="..\TemplateContent\**\*.*"
+      <ContentFiles Include="..\TemplateContent\**\*.*"/>
   </ItemGroup>
   <Target Name="CopyFiles">
     <Copy 

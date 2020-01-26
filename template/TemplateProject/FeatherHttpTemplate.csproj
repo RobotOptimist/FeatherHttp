@@ -12,8 +12,9 @@
     <ContentTargetFolders></ContentTargetFolders>    
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="..\TemplateContent\**\*" Exclude="..\TemplateContent\**\bin\**;..\TemplateContent\**\obj\**" />
-    <Compile Remove="**\*" />    
-    <PackagePath>\</PackagePath>
+    <Content Include="..\TemplateContent\**\*" Exclude="..\TemplateContent\**\bin\**;..\TemplateContent\**\obj\**">
+      <PackagePath>\</PackagePath> 
+    </Content>
+    <Compile Remove="**\*" />        
   </ItemGroup>
 </Project>

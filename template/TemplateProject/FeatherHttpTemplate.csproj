@@ -9,7 +9,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>    
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <ContentTargetFolders>content</ContentTargetFolders>    
   </PropertyGroup>
   <ItemGroup>
     <Content Include="..\TemplateContent\**\*" Exclude="..\TemplateContent\**\bin\**;..\TemplateContent\**\obj\**" />

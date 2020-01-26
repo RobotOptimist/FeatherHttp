@@ -14,5 +14,6 @@
   <ItemGroup>
     <Content Include="..\TemplateContent\**\*" Exclude="..\TemplateContent\**\bin\**;..\TemplateContent\**\obj\**" />
     <Compile Remove="**\*" />    
+    <PackagePath>\</PackagePath>
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>    
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <ContentTargetFolders>content</ContentTargetFolders>
+    <ContentTargetFolders>.\</ContentTargetFolders>
   </PropertyGroup>
   <PropertyGroup Label="Package">
     <PackageId>FeatherHttp.Templates</PackageId>

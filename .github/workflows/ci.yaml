@@ -31,6 +31,7 @@ jobs:
     - name: pack template nuget      
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: |          
+        cp .\template\TemplateContent .\template\TemplateProject\content -Recurse
         dotnet pack ./template/TemplateProject/FeatherHttpTemplate.csproj -c Release
 
     - name: dotnet test

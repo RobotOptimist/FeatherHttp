@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -25,12 +25,13 @@ jobs:
 
     - name: update template nuget package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-      uses: jacobtomlinson/gha-find-replace@master
-      with:
-        find: "$(TheNugetPackageVersion)"
-        with: $env:NBGV_NuGetPackageVersion
-      #run: | 
-        #dotnet add  ./template/TemplateContent/FeatherHttpProject.csproj package FeatherHttp -v $env:NBGV_NuGetPackageVersion --no-restore        
+      #uses: jacobtomlinson/gha-find-replace@master
+      #with:
+        #find: "$(TheNugetPackageVersion)"
+        #with: $env:NBGV_NuGetPackageVersion
+      run: | 
+        (Get-Content -path ./template/TemplateContent/FeatherHttpProject.csproj -Raw) -replace "$(TheNugetPackageVersion)", $env:NBGV_NuGetPackageVersion
+      #:dotnet add  ./template/TemplateContent/FeatherHttpProject.csproj package FeatherHttp -v $env:NBGV_NuGetPackageVersion --no-restore        
 
     - name: pack template nuget      
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'

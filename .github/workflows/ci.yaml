@@ -30,7 +30,7 @@ jobs:
         #find: "$(TheNugetPackageVersion)"
         #with: $env:NBGV_NuGetPackageVersion
       run: | 
-        (Get-Content -path ./template/TemplateContent/FeatherHttpProject.csproj -Raw) -replace "$(TheNugetPackageVersion)", $env:NBGV_NuGetPackageVersion
+        (Get-Content -path ./template/TemplateContent/FeatherHttpProject.csproj -Raw) -replace "TheNugetPackageVersion", $env:NBGV_NuGetPackageVersion
       #:dotnet add  ./template/TemplateContent/FeatherHttpProject.csproj package FeatherHttp -v $env:NBGV_NuGetPackageVersion --no-restore        
 
     - name: pack template nuget      

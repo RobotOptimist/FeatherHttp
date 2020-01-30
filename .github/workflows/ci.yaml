@@ -23,10 +23,10 @@ jobs:
     - name: dotnet build
       run: dotnet build FeatherHttp.sln -c Release    
 
-    - name: update template nuget package
+    #- name: update template nuget package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-      run: | 
-        dotnet add  ./template/TemplateContent/FeatherHttpProject.csproj package FeatherHttp -v $env:NBGV_NuGetPackageVersion --no-restore        
+      #run: | 
+        #dotnet add  ./template/TemplateContent/FeatherHttpProject.csproj package FeatherHttp -v $env:NBGV_NuGetPackageVersion --no-restore        
 
     - name: pack template nuget      
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'

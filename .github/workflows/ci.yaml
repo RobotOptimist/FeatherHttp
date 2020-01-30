@@ -23,8 +23,12 @@ jobs:
     - name: dotnet build
       run: dotnet build FeatherHttp.sln -c Release    
 
-    #- name: update template nuget package
+    - name: update template nuget package
       #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      uses: jacobtomlinson/gha-find-replace@master
+      with:
+        find: "$(TheNugetPackageVersion)"
+        with: $env:NBGV_NuGetPackageVersion
       #run: | 
         #dotnet add  ./template/TemplateContent/FeatherHttpProject.csproj package FeatherHttp -v $env:NBGV_NuGetPackageVersion --no-restore        
 

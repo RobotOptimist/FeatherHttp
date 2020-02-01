@@ -25,15 +25,15 @@ jobs:
 
     #update the FeatherHttpContent to have the latest prerelease version of FeatherHttp
     - name: update template nuget package
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: | 
-        ((Get-Content -path ./template/Content/FeatherHttpContent.csproj -Raw) -replace "TheNugetPackageVersion", $env:NBGV_NuGetPackageVersion) | Set-Content -Path ./template/Content/FeatherHttpContent.csproj
+        ((Get-Content -path ./template/Content/FeatherHttpContent.csproj -Raw) -replace "\$\(PackageVersion\)", $env:NBGV_NuGetPackageVersion) | Set-Content -Path ./template/Content/FeatherHttpContent.csproj
 
     #pack nuget template - note that directory structure does not resemble a normal template project (the content directory is not nested)
     #this is because the nuget template package must have a stable release version and has it's own version.json in order to be available to dotnet new -i FeatherHttp.Templates
     #dotnet new templating engine does not currently allow prerelease templates
     - name: pack template nuget      
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: |          
         dotnet pack ./template/Project/FeatherHttpProject.csproj -c Release      
 
@@ -44,19 +44,19 @@ jobs:
       run: dotnet pack FeatherHttp.sln -c Release --no-build --include-source --include-symbols
 
     - name: setup nuget
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       uses: NuGet/setup-nuget@v1.0.2
       with:
         nuget-version: latest
 
     - name: Set API key
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-      run: nuget setapikey ${{ secrets.FEEDZ_TOKEN }} -Config nuget.config -Source https://f.feedz.io/davidfowl/featherhttp/nuget/index.json
+      #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: nuget setapikey ${{ secrets.FEEDZ_TOKEN }} -Config nuget.config -Source https://f.feedz.io/macivor/featherhttp/nuget/index.json
 
     - name: Set symbols API key
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-      run: nuget setapikey ${{ secrets.FEEDZ_TOKEN }} -Config nuget.config -Source https://f.feedz.io/davidfowl/featherhttp/symbols
+      #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: nuget setapikey ${{ secrets.FEEDZ_TOKEN }} -Config nuget.config -Source https://f.feedz.io/macivor/featherhttp/symbols
 
     - name: push packages
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-      run: dotnet nuget push **/*.nupkg -s https://f.feedz.io/davidfowl/featherhttp/nuget/index.json -ss https://f.feedz.io/davidfowl/featherhttp/symbols --skip-duplicate
+      #if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: dotnet nuget push **/*.nupkg -s https://f.feedz.io/macivor/featherhttp/nuget/index.json -ss https://f.feedz.io/macivor/featherhttp/symbols --skip-duplicate

@@ -7,11 +7,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
       with:
-        ref: ci-changes
-    - run: |
-         git fetch --prune --unshallow origin HEAD
+        ref: ${{ github.ref }}
 
     - uses: aarnott/nbgv@v0.3
       with:
